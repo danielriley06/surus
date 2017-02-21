@@ -69,7 +69,7 @@ module Surus
             RowQuery.new(association_scope, association_options).to_sql
           when :has_one
             association_scope = HasManyScopeBuilder.new(original_scope, association).scope
-            RowQuery.new(association_scope, association_options).to_sql
+            ArrayAggQuery.new(association_scope, association_options).to_sql
           when :has_many
             association_scope = HasManyScopeBuilder.new(original_scope, association).scope
             ArrayAggQuery.new(association_scope, association_options).to_sql
